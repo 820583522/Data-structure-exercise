@@ -23,3 +23,5 @@ void SeqListCheckCapacity(SL* ps);
 void SeqListPopFront(SL* ps);
 void SeqListInsert(SL* ps, int pos, SLDataType x);
 void SeqListErase(SL* ps, int pos);
+int SeqListFind(SL* ps, SLDataType x);
+void SeqListDestory(SL* ps);

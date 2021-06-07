@@ -27,7 +27,10 @@ void TestSeqList1()
 	SeqListPrint(&s);
 	SeqListErase(&s, 2);
 	SeqListPrint(&s);
-
+	int pos = SeqListFind(&s, 30);
+	printf("%d\n", pos);
+	
+	SeqListDestory(&s);
 }
 
 int main()
