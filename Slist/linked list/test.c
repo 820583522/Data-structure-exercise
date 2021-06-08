@@ -16,16 +16,18 @@ int main()
 	SListPopBack(&pList);
 	SListPopBack(&pList);
 	SListPopBack(&pList);
+	SListPopBack(&pList);
+	SListPopBack(&pList);
+	SListPopBack(&pList);
 	SListPrint(pList);
 	SListPushFront(&pList,0);
+	SListPushFront(&pList, 1);
+	SListPushFront(&pList, 2);
 	SListPrint(pList);
 	SListPopFront(&pList);
-	SListPrint(pList);
-	SListPopFront(&pList);
-	SListPrint(pList);
-	SListPopFront(&pList);
-	SListPrint(pList);
-	SListPopFront(&pList);
+	SListPrint(pList); 
+	SListNode* pos= SListFind(pList, 1);
+	pos->date =3;
 	SListPrint(pList);
 
 	return 0;

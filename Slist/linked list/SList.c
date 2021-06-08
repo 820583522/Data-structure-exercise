@@ -70,20 +70,29 @@ void SListPopBack(SListNode** ppList)
 }
 //首插
 void SListPushFront(SListNode** ppList, SListDataType x)
+
+//老师的方法
 {
-	if(*ppList == NULL)
-	{
-		SListNode* newNode = BuySListNode(x);
-		*ppList = newNode;
-	}
-	else
-	{
-		SListNode* newNode = (SListNode*)malloc(sizeof(SListNode));
-		newNode->date = x;
-		newNode->next = *ppList;
-		*ppList = newNode;
-	}
+	SListNode* NewNode = BuySListNode(x);
+	NewNode->next = *ppList;
+	*ppList = NewNode;
 }
+
+//我的方法
+//{
+//	if(*ppList == NULL)
+//	{
+//		SListNode* newNode = BuySListNode(x);
+//		*ppList = newNode;
+//	}
+//	else
+//	{
+//		SListNode* newNode = (SListNode*)malloc(sizeof(SListNode));
+//		newNode->date = x;
+//		newNode->next = *ppList;
+//		*ppList = newNode;
+//	}
+//}
 //首删
 void SListPopFront(SListNode** ppList)
 {
@@ -91,7 +100,7 @@ void SListPopFront(SListNode** ppList)
 	{
 		return;
 	}
-	else if ((*ppList)->next == NULL)
+	else if ((*ppList)->next == NULL)   //只有一个节点和有两个或两个以上节点可以合为一直情况
 	{
 		free(*ppList);
 		*ppList = NULL;
@@ -102,8 +111,21 @@ void SListPopFront(SListNode** ppList)
 		SListNode* phead = *ppList;
 		*ppList = (*ppList)->next;
 		free(phead);
-		phead->next = NULL;
 	}
+}
+//查找
+SListNode* SListFind(SListNode* pList, SListDataType x)
+{
+	SListNode* cur = pList;
+	while (cur)
+	{
+		if (cur->date == x)
+		{
+			return cur;
+		}
+		cur = cur->next;
+	}
+	return NULL;
 }
 
 void SListPrint(SListNode* pList)

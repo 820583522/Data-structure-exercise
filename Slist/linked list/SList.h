@@ -15,4 +15,5 @@ void SListPopBack(SListNode** ppList);
 void SListPushFront(SListNode** ppList, SListDataType x);
 void SListPopFront(SListNode** ppList);
 void SListPrint(SListNode* pList);
-SListNode* BuySListNode(SListDataType x);
+SListNode* BuySListNode(SListDataType x);	
+SListNode* SListFind(SListNode* pList, SListDataType x);
