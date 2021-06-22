@@ -15,21 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test.c">
+    <ClCompile Include="Stack.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SList.c">
+    <ClCompile Include="Test.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="DList.c">
+    <ClCompile Include="Queue.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SList.h">
+    <ClInclude Include="Stack.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="DList.h">
+    <ClInclude Include="Queue.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

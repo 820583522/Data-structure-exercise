@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{49B2C2FC-7B47-4DEF-824C-E6C4BA73A06A}</ProjectGuid>
-    <RootNamespace>linkedlist</RootNamespace>
-    <ProjectName>Slist</ProjectName>
+    <ProjectGuid>{36EE8881-3F1B-4505-8E5D-74DDA83C773B}</ProjectGuid>
+    <RootNamespace>Stack</RootNamespace>
+    <ProjectName>StackQueue</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -66,13 +66,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DList.c" />
-    <ClCompile Include="SList.c" />
-    <ClCompile Include="test.c" />
+    <ClCompile Include="Queue.c" />
+    <ClCompile Include="Stack.c" />
+    <ClCompile Include="Test.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DList.h" />
-    <ClInclude Include="SList.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="Stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
