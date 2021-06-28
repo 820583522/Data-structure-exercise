@@ -19,9 +19,5 @@ void StackPop(Stack* pst);
 
 STDateType StackTop(Stack* pst);
 
-//¿Õ·µ»Ø1£¬·Ç¿Õ·µ»Ø0
-
-//int StackEmpty(Stack* pst);
-
 bool StackEmpty(Stack* pst);
 int StrackSize(Stack* pst);

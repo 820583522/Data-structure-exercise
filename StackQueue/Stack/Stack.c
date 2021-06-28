@@ -6,7 +6,7 @@ void StackInit(Stack* pst)
 {
 	assert(pst);
 
-	pst->a = (Stack*)malloc(sizeof(Stack)* 4);
+	pst->a = (STDateType*)malloc(sizeof(STDateType)* 4);
 	pst->top = 0;
 	pst->capacity = 4;
 	return;
