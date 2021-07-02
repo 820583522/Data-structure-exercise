@@ -193,6 +193,123 @@ bool BinaryTreeIsComplete(BTNode* root)
 	QueueDestroy(&q);
 	return true;
 }
+//判断单值二叉树
+bool isUnivalTree(BTNode* root)
+{
+	if (root == NULL)
+	{
+		return true;
+	}
+	if (root->left&&root->left->val != root->val)
+	{
+		return false;
+	}
+	if (root->right&&root->right->val != root->val)
+	{
+		return false;
+	}
+	return isUnivalTree(root->left) && isUnivalTree(root->right);
+
+}
+//翻转二叉树
+BTNode* invertTree(BTNode* root)
+{
+	if (root == NULL)
+	{
+		return NULL;
+	}
+	BTNode* LefttTree = root->left;
+	BTNode** RightTree = root->right;
+	root->left = RightTree;
+	root->right = LefttTree;
+	invertTree(LefttTree);
+	invertTree(RightTree);
+	return root;
+}
+
+//二叉树的前序遍历，并保存至malloc开辟的数组中
+void _preorder(BTNode* root, int* arr, int* pi)
+{
+	if (root == NULL)
+	{
+		return;
+	}
+	arr[(*pi)++] = root->val;
+
+	_preorder(root->left, arr, pi);
+	_preorder(root->right, arr, pi);
+}
+int* preorderTraversal(BTNode* root, int* returnSize)
+{
+	*returnSize = BinaryTreeSize(root);
+	int* arr = (int*)malloc(sizeof(int)*(*returnSize));
+	int i = 0;
+	_preorder(root, arr, &i);
+	return arr;
+}
+
+//判断两棵树是否相同
+bool isSameTree(BTNode* p, BTNode* q)
+{
+	if (p == NULL&&q == NULL)
+	{
+		return true;
+	}
+	if (p == NULL || q == NULL)
+	{
+		return false;
+	}
+	if (p->val != q->val)
+	{
+		return false;
+	}
+	return isSameTree(p->left, q->left)
+		&& isSameTree(p->right, q->right);
+}
+
+//判断一棵树subRoot是否是另一棵树root的子树
+bool isSubtree(BTNode* root, BTNode* subRoot)
+{
+	if (root == NULL)
+	{
+		return false;
+	}
+	if (isSameTree(root, subRoot))
+	{
+		return true;
+	}
+	return isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
+}
+
+
+//判断一个二叉树是不是对称二叉树
+bool _isSymmetric(BTNode* n1, BTNode* n2)
+{
+	if (n1 == NULL&&n2 == NULL)
+	{
+		return true;
+	}
+	if (n1 == NULL || n2 == NULL)
+	{
+		return false;
+	}
+	if (n1->val != n2->val)
+	{
+		return false;
+	}
+	return _isSymmetric(n1->left, n2->right) && _isSymmetric(n1->right, n2->left);
+}
+bool isSymmetric(BTNode* root)
+{
+	if (root == NULL)
+	{
+		return true;
+	}
+
+	return _isSymmetric(root->left, root->right);
+}
+
+
 //二叉树销毁
 void BinaryTreeDestory(BTNode* root)
 {
@@ -219,14 +336,20 @@ int main()
 	nc->left = ne;
 	nc->right = nf;
 
-	PrevOrder(na);
+	BTNode prev = *na;
+	na=invertTree(na);
+	BinaryLevelOrder(&prev);
+	printf("\n");
+	BinaryLevelOrder(na);
+	printf("\n");
+	/*PrevOrder(na);
 	printf("\n");
 	InOrder(na);
 	printf("\n");
 	PostOrder(na);
 	printf("\n");
 	BinaryLevelOrder(na);
-	printf("\n");
+	printf("\n");*/
 	
 	int k = 3;
 	printf("TreeSize:%d\n", BinaryTreeSize(na));
