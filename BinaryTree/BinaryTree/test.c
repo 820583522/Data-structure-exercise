@@ -308,6 +308,32 @@ bool isSymmetric(BTNode* root)
 
 	return _isSymmetric(root->left, root->right);
 }
+//判断一棵树是不是平衡二叉树（每个节点的左右两个子树的高度差都不大于1）时间复杂度O（n），用后序遍历，从最深的节点开始检查，并返回它的高度给父亲节点
+bool _isBalanced(BTNode* root, int* ph)
+{
+	if (root == NULL)
+	{
+		*ph = 0;
+		return true;
+	}
+	int leftHight = 0;
+	if (_isBalanced(root->left, &leftHight) == false)
+	{
+		return false;
+	}
+	int rightHight = 0;
+	if (_isBalanced(root->right, &rightHight) == false)
+	{
+		return false;
+	}
+	*ph = fmax(leftHight, rightHight) + 1;
+	return abs(leftHight - rightHight)<2;
+}
+bool isBalanced(BTNode* root)
+{
+	int hight = 0;
+	return _isBalanced(root, &hight);
+}
 
 
 //二叉树销毁
