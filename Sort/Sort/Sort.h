@@ -1,5 +1,6 @@
 #include<stdio.h>
-
+#include<time.h>
+#include<stdlib.h>
 void PrintArr(int* arr, int n);
 
 
@@ -23,10 +24,12 @@ int PartSort2(int* a, int left, int right);
 int PartSort3(int* a, int left, int right);
 void QuickSort(int* a, int left, int right);
 // 快速排序 非递归实现
-void QuickSortNonR(int* a, int left, int right);
+void QuickSortNonR(int* a, int begin, int end);
 // 归并排序递归实现
 void MergeSort(int* a, int n);
 // 归并排序非递归实现
 void MergeSortNonR(int* a, int n);
 // 计数排序
 void CountSort(int* a, int n);
+
+void TestOP();
