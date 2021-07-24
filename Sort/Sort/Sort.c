@@ -381,3 +381,69 @@ void QuickSortNonR(int* a, int begin, int end)
 		}
 	}
 }
+
+
+// 归并排序递归实现
+//把一个区间分成两个子区间，对两个子区间进行排序，两个子区间都有序后，归并到一起，取两个头中较小的数据尾插到新的数组中
+
+void _Merge(int* a,int* tmp,int begin1,int end1,int begin2,int end2)
+{
+	int left = begin1, right = end2;
+	//两段有序子区间归并到tmp;再拷贝回去
+	int i = begin1;
+	while (begin1 <= end1&&begin2 <= end2)
+	{
+		if (a[begin1] < a[begin2])
+			tmp[i++] = a[begin1++];
+		else
+			tmp[i++] = a[begin2++];
+	}
+	while (begin1 <= end1)
+		tmp[i++] = a[begin1++];
+	while (begin2 <= end2)
+		tmp[i++] = a[begin2++];
+	for (int j = left; j <= right; j++)
+	{
+		a[j] = tmp[j];
+	}
+}
+void _MergeSort(int* a,int* tmp, int left, int right)
+{
+	if (left >= right)
+		return;
+	//划分成小区间
+	int mid = (left + right) >> 1;
+	_MergeSort(a, tmp,left, mid);
+	_MergeSort(a, tmp,mid + 1, right);
+	
+	
+	_Merge(a, tmp, left, mid, mid+1, right);
+}
+void MergeSort(int* a, int n)
+{
+	int* tmp = (int*)malloc(sizeof(int)*n);
+	if (tmp == NULL)
+	{
+		printf("malloc fail\n");
+		exit(-1);
+	}
+	_MergeSort(a,tmp, 0, n - 1);
+	
+	free(tmp);
+}
+
+// 归并排序非递归实现
+void MergeSortNonR(int* a, int n)
+{
+	int* tmp = (int*)malloc(sizeof(int)*n);
+	if (tmp == NULL)
+	{
+		printf("malloc fail\n");
+		exit(-1);
+	}
+	int gap = 1;
+	while (gap < n)
+	{
+
+	}
+}
