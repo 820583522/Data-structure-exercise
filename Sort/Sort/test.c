@@ -56,7 +56,7 @@ void TestMergeSort()
 }
 void TestMergeSortNonR()
 {
-	int arr[] = { 5, 6, 8, 1, 2, 3, 6, 8 };
+	int arr[] = { 5, 6, 8, 1, 2, 3, 6, 8,10,11,7};
 	MergeSortNonR(arr, sizeof(arr) / sizeof(arr[0]));
 	PrintArr(arr, sizeof(arr) / sizeof(arr[0]));
 }
@@ -71,7 +71,7 @@ int main()
 	//TestBubbleSort();
 	/*TestQuickSort();*/
 	//TestQuickSortNonR();
-	TestMergeSort();
-	//TestMergeSortNonR();
+	//TestMergeSort();
+	TestMergeSortNonR();
 	return 0;
 }

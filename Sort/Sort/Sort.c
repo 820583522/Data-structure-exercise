@@ -3,7 +3,7 @@
 #include"Stack.h"
 void TestOP()
 {
-	srand(time(0));
+	srand((unsigned int)time(0));
 	const int N = 100000;
 	int* a1 = (int*)malloc(sizeof(int)*N);
 	int* a2 = (int*)malloc(sizeof(int)*N);
@@ -444,6 +444,20 @@ void MergeSortNonR(int* a, int n)
 	int gap = 1;
 	while (gap < n)
 	{
-
+		for (int left = 0; left < n; left += 2*gap)
+		{
+			int begin1 = left, end1 = left + gap-1;
+			int begin2 = left + gap, end2 = left + 2*gap - 1;
+			if (begin2 >= n)
+			{
+				break;
+			}
+			if (end2 > n - 1)
+			{
+				end2 = n - 1;
+			}
+			_Merge(a, tmp, begin1, end1, begin2, end2);
+		}
+		gap *= 2;
 	}
 }
