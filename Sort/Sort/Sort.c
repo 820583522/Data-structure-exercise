@@ -1,16 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include"Sort.h"
 #include"Stack.h"
+// 测试排序的性能对比
 void TestOP()
 {
-	srand((unsigned int)time(0));
-	const int N = 100000;
+	srand(time(0));
+	const int N = 10000;
 	int* a1 = (int*)malloc(sizeof(int)*N);
 	int* a2 = (int*)malloc(sizeof(int)*N);
 	int* a3 = (int*)malloc(sizeof(int)*N);
 	int* a4 = (int*)malloc(sizeof(int)*N);
 	int* a5 = (int*)malloc(sizeof(int)*N);
-	//int* a6 = (int*)malloc(sizeof(int)*N);
+	int* a6 = (int*)malloc(sizeof(int)*N);
 	for (int i = 0; i < N; ++i)
 	{
 		a1[i] = rand();
@@ -18,7 +19,7 @@ void TestOP()
 		a3[i] = a1[i];
 		a4[i] = a1[i];
 		a5[i] = a1[i];
-		//a6[i] = a1[i];
+		a6[i] = a1[i];
 	}
 	int begin1 = clock();
 	InsertSort(a1, N);
@@ -35,21 +36,21 @@ void TestOP()
 	int begin5 = clock();
 	QuickSort(a5, 0, N - 1);
 	int end5 = clock();
-	/*int begin6 = clock();
+	int begin6 = clock();
 	MergeSort(a6, N);
-	int end6 = clock();*/
+	int end6 = clock();
 	printf("InsertSort:%d\n", end1 - begin1);
 	printf("ShellSort:%d\n", end2 - begin2);
 	printf("SelectSort:%d\n", end3 - begin3);
 	printf("HeapSort:%d\n", end4 - begin4);
 	printf("QuickSort:%d\n", end5 - begin5);
-	/*printf("MergeSort:%d\n", end6 - begin6);*/
+	printf("MergeSort:%d\n", end6 - begin6);
 	free(a1);
 	free(a2);
 	free(a3);
 	free(a4);
 	free(a5);
-	//free(a6);
+	free(a6);
 }
 void swap(int* p1, int* p2)
 {
@@ -329,7 +330,7 @@ void QuickSort(int* a, int begin, int end)
 	swap(&a[begin], &a[MidIndex]);
 
 	//小区间优化，1.如果子区间数据较多，用快排比较划算。2.如果子区间数据较少，这是递归就不如插入排序划算了
-	if (begin < end - 10)
+	if (begin < end - 200)
 	{
 		int keyi = PartSort3(a, begin, end);
 
@@ -459,5 +460,44 @@ void MergeSortNonR(int* a, int n)
 			_Merge(a, tmp, begin1, end1, begin2, end2);
 		}
 		gap *= 2;
+	}
+}
+//时间复杂度（0（N+range））,空间复杂度O（range）;
+//适合于数据比较集中的数组，
+//局限性：只适用于整数；
+void CountSort(int* a, int n)
+{
+	//创建一个数组，记录每个数的个数
+	//计算数组的大小
+	int max = a[0];
+	int min = a[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (a[i]>max)
+		{
+			max = a[i];
+		}
+		if (a[i] < min)
+		{
+			min = a[i];
+		}
+	}
+	int range = max - min +1;
+	int* count = (int*)malloc(range*sizeof(int));
+	memset(count, 0, sizeof(int)*range);
+	for (int i = 0; i < n; i++)
+	{
+		count[a[i] - min]++;
+	}
+	//根据count数组中记录的每个数的个数，写回原数组
+	//i记录a数组的下标，j记录count数组的下标
+	int i = 0;
+	for (int j = 0; j < range; j++)
+	{
+		//当count[j]不是0，意思是还有（j+min）这个值没写入原数组；
+		while (count[j]--)
+		{
+			a[i++] = j + min;
+		}
 	}
 }
