@@ -3,6 +3,7 @@
 #include<stdbool.h>
 #include<stdio.h>
 #include<assert.h>
+#include<stdlib.h>
 typedef int STDateType;
 struct Stack
 {

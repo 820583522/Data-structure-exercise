@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "顺序表_6_6", "顺序表_6_6\顺序表_6_6.vcxproj", "{FB473AE4-0468-40E9-9D38-951AB4DF22FB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SeqList", "SeqList\SeqList.vcxproj", "{63DC13A0-37EA-4C5F-BB84-7B7BC1DC6105}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FB473AE4-0468-40E9-9D38-951AB4DF22FB}.Debug|Win32.ActiveCfg = Debug|Win32
-		{FB473AE4-0468-40E9-9D38-951AB4DF22FB}.Debug|Win32.Build.0 = Debug|Win32
-		{FB473AE4-0468-40E9-9D38-951AB4DF22FB}.Release|Win32.ActiveCfg = Release|Win32
-		{FB473AE4-0468-40E9-9D38-951AB4DF22FB}.Release|Win32.Build.0 = Release|Win32
+		{63DC13A0-37EA-4C5F-BB84-7B7BC1DC6105}.Debug|Win32.ActiveCfg = Debug|Win32
+		{63DC13A0-37EA-4C5F-BB84-7B7BC1DC6105}.Debug|Win32.Build.0 = Debug|Win32
+		{63DC13A0-37EA-4C5F-BB84-7B7BC1DC6105}.Release|Win32.ActiveCfg = Release|Win32
+		{63DC13A0-37EA-4C5F-BB84-7B7BC1DC6105}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

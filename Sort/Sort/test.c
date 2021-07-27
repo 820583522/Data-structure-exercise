@@ -67,20 +67,48 @@ void TestCountSort()
 	CountSort(arr, sizeof(arr) / sizeof(arr[0]));
 	PrintArr(arr, sizeof(arr) / sizeof(arr[0]));
 }
+//int main()
+//{
+//	//TestOP();
+//	
+//	//TestInsertSort();
+//	//TestShellSort();
+//	//TestSelectSort();
+//	//TestHeapSort();
+//	//TestBubbleSort();
+//	//TestQuickSort();
+//	//TestQuickSortNonR();
+//	//TestMergeSort();
+//	//TestMergeSortNonR();
+//	//TestCountSort();
+//
+//	return 0;
+//}
+
+
+int Min(int a, int b)
+{
+	return a>b ? b : a;
+}
 int main()
 {
-	TestOP();
-	
-	//TestInsertSort();
-	//TestShellSort();
-	//TestSelectSort();
-	//TestHeapSort();
-	//TestBubbleSort();
-	//TestQuickSort();
-	//TestQuickSortNonR();
-	//TestMergeSort();
-	//TestMergeSortNonR();
-	//TestCountSort();
-
-	return 0;
+	int N = 0;
+	scanf("%d", &N);
+	if (N<4)
+	{
+		printf("0");
+	}
+	int prev = 1;
+	int prevprev = 1;
+	int cur = 2;
+	int pcur = 2;
+	while (cur<N)
+	{
+		cur = prevprev + prev;
+		
+		prevprev=prev;
+		prev = cur;
+	}
+	int n = Min(cur - N, N - prevprev);
+	printf("%d", n);
 }
