@@ -13,9 +13,12 @@ void test()
 	SeqListInsert(&s, 3, 3);
 	SeqListInsert(&s, 4, 4);
 	SeqListPrint(&s);
-	SeqListErase(&s, 3);
+	SeqListErase(&s, 4);
 	SeqListPrint(&s);
 	SeqListErase(&s, 1);
+	SeqListErase(&s, 0);
+
+
 	SeqListPrint(&s);
 
 	SeqListPushBack(&s, 5);
