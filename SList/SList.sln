@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "linked list", "linked list\linked list.vcxproj", "{49B2C2FC-7B47-4DEF-824C-E6C4BA73A06A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SList", "SList\SList.vcxproj", "{86F65E96-50E2-41F4-90E1-DD1706CFEB35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{49B2C2FC-7B47-4DEF-824C-E6C4BA73A06A}.Debug|Win32.ActiveCfg = Debug|Win32
-		{49B2C2FC-7B47-4DEF-824C-E6C4BA73A06A}.Debug|Win32.Build.0 = Debug|Win32
-		{49B2C2FC-7B47-4DEF-824C-E6C4BA73A06A}.Release|Win32.ActiveCfg = Release|Win32
-		{49B2C2FC-7B47-4DEF-824C-E6C4BA73A06A}.Release|Win32.Build.0 = Release|Win32
+		{86F65E96-50E2-41F4-90E1-DD1706CFEB35}.Debug|Win32.ActiveCfg = Debug|Win32
+		{86F65E96-50E2-41F4-90E1-DD1706CFEB35}.Debug|Win32.Build.0 = Debug|Win32
+		{86F65E96-50E2-41F4-90E1-DD1706CFEB35}.Release|Win32.ActiveCfg = Release|Win32
+		{86F65E96-50E2-41F4-90E1-DD1706CFEB35}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
