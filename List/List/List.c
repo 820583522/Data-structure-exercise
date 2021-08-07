@@ -6,9 +6,17 @@ LTNode* ListInit()
 	phead->next = phead->prev = phead;
 	return phead;
 }
-void ListDestory(LTNode** pphead)
+void ListDestory(LTNode* phead)
 {
-
+	LTNode* cur = phead->next;
+	LTNode* next = cur->next;
+	while (cur != phead)
+	{
+		next = cur->next;
+		free(cur);
+		cur = next;
+	}
+	free(phead);
 }
 
 LTNode* BuyListNode(LTDateType x)

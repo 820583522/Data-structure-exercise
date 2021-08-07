@@ -26,6 +26,9 @@ void TestList1()
 	ListPrint(pList);
 	ListErase(pos);
 	ListPrint(pList);
+
+	ListDestory(pList);
+	pList = NULL;
 }
 
 

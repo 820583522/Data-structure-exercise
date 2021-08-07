@@ -14,7 +14,7 @@ typedef struct ListNode
 }LTNode;
 
 LTNode* ListInit();
-void ListDestory(LTNode** pphead);
+void ListDestory(LTNode* phead);
 LTNode* BuyListNode(LTDateType x);
 void ListPushBack(LTNode* phead, LTDateType x);
 void ListPrint(LTNode* phead);
